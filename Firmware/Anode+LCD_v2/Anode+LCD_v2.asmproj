@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>6.2</ProjectVersion>
+    <ToolchainName>com.Atmel.AVRAssembler</ToolchainName>
+    <ProjectGuid>{512f155b-e907-48d6-bcfd-e9c3eb839d39}</ProjectGuid>
+    <avrdeviceseries>none</avrdeviceseries>
+    <avrdevice>ATmega32A</avrdevice>
+    <OutputFileName>$(MSBuildProjectName)</OutputFileName>
+    <OutputFileExtension>.obj</OutputFileExtension>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <Language>ASSEMBLY</Language>
+    <AssemblyName>Anode+LCD_v2</AssemblyName>
+    <Name>Anode+LCD_v2</Name>
+    <RootNamespace>Anode+LCD_v2</RootNamespace>
+    <EntryFile>$(MSBuildProjectDirectory)\anode.asm</EntryFile>
+    <ToolchainFlavour>Native</ToolchainFlavour>
+    <KeepTimersRunning>true</KeepTimersRunning>
+    <OverrideVtor>false</OverrideVtor>
+    <CacheFlash>true</CacheFlash>
+    <ProgFlashFromRam>true</ProgFlashFromRam>
+    <RamSnippetAddress />
+    <UncachedRange />
+    <preserveEEPROM>true</preserveEEPROM>
+    <OverrideVtorValue />
+    <BootSegment>2</BootSegment>
+    <eraseonlaunchrule>1</eraseonlaunchrule>
+    <AsfFrameworkConfig>
+      <framework-data xmlns="">
+        <options />
+        <configurations />
+        <files />
+        <documentation help="" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.21.0" />
+        </dependencies>
+      </framework-data>
+    </AsfFrameworkConfig>
+    <avrtool />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <ToolchainSettings>
+      <AvrAssembler>
+        <avrasm.assembler.general.IncludeFile>(%24IncludeFile)</avrasm.assembler.general.IncludeFile>
+      </AvrAssembler>
+    </ToolchainSettings>
+    <OutputType>Executable</OutputType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <ToolchainSettings>
+      <AvrAssembler>
+        <avrasm.assembler.general.IncludeFile>(%24IncludeFile)</avrasm.assembler.general.IncludeFile>
+      </AvrAssembler>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="anode.asm">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="dca_output.inc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="digital_filter.inc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="envelope.inc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="filter_modulation.inc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SimpleASCIIConversion.inc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="initialize.inc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LCD.inc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="lfo.inc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="lookup_tables.inc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="midi_in.inc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="note_handler.inc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="sample_generation.inc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="scan_knobs.inc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="scan_switches.inc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="subroutines.inc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="variable_definitions.inc">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="wavetables.inc">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Assembler.targets" />
+</Project>

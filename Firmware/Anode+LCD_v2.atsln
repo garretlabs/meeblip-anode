@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{18226A42-8477-4023-8AD2-40C49DA407C9}") = "Anode+LCD_v2", "Anode+LCD_v2\Anode+LCD_v2.asmproj", "{512F155B-E907-48D6-BCFD-E9C3EB839D39}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{512F155B-E907-48D6-BCFD-E9C3EB839D39}.Debug|AVR.ActiveCfg = Debug|AVR
+		{512F155B-E907-48D6-BCFD-E9C3EB839D39}.Debug|AVR.Build.0 = Debug|AVR
+		{512F155B-E907-48D6-BCFD-E9C3EB839D39}.Release|AVR.ActiveCfg = Release|AVR
+		{512F155B-E907-48D6-BCFD-E9C3EB839D39}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -170,7 +170,7 @@ MLP_PORTAWR:
 		    lds	    r16, MIDIPBEND_L	;\ r17,r16 = P.BEND
     		lds	    r17, MIDIPBEND_H	;/	-128,000..+127,996
 		    ldi	    r18, 5			    ;\ r17,r16 = P.BEND/32
-		    rcall	ASr16			    ;/	-4,000..+3,999
+		    call	ASr16			    ;/	-4,000..+3,999 //ML--->>changed rcall in call to avoid error " relative branch out of reach"
 		    mov	    r18, r16		    ;\ r19,r18 = P.BEND/32
 		    mov	    r19, r17		    ;/	-4,000..+3,999
 		    add	    r16, r18		    ;\ r17,r16 = 2/32*P.BEND
@@ -212,7 +212,7 @@ MLP_OM1:
 			mulsu	r16, r17		; LFOVALUE*LFOLEVEL
 			movw	r16, r0
 		    ldi	    r18, 4			    ;\
-		    rcall	ASr16			    ;/ r17,r16 = LFO*mod / 16
+		    call	ASr16			    ;/ r17,r16 = LFO*mod / 16  //ML--->>changed rcall in call to avoid error " relative branch out of reach"
 		    add	    r22, r16		    ;\
 		    adc	    r23, r17		    ;/ add LFO to note #
 
@@ -250,8 +250,8 @@ WTA_NOUFL:
 ;octave A:
 		    rcall	NOTERECALC		    ; r23,r22 = m12 (0,0..11,996),
 						                ; r20 = n12 (0..11)
-		    rcall	LOAD_DELTA		    ; r19:r18:r17:r16 = delta
-		    rcall	SHL32			    ; r19:r18:r17:r16 = delta*(2^exp)
+		    call	LOAD_DELTA		    ; r19:r18:r17:r16 = delta //ML--->>changed rcall in call to avoid error " relative branch out of reach"
+		    call	SHL32			    ; r19:r18:r17:r16 = delta*(2^exp) //ML--->>changed rcall in call to avoid error " relative branch out of reach"
 
 			  ; store delta
   			sts DELTAA_0,r17
@@ -266,7 +266,7 @@ WTA_NOUFL:
 		    lds	    r16, DETUNEB_FRAC	;\ r17,r16 = detuneB
 		    lds	    r17, DETUNEB_INTG	;/ -128,000..+127,996
 		    ldi	    r18, 4			    ;\ r17,r16 = detuneB / 16
-    		rcall	ASR16			    ;/ -8,0000..+7,9998
+    		call	ASR16			    ;/ -8,0000..+7,9998 //ML--->>changed rcall in call to avoid error " relative branch out of reach"
 		    add	    r22, r16		    ;\
 		    adc	    r23, r17		    ;/
 
@@ -294,10 +294,10 @@ WTB_NOUFL:
 			lsr		r25					; 0..11
 			sts		WAVETABLE_B, r25	; Save wavetable 0..15 for lookup when generating oscillator
 			
-		    rcall	NOTERECALC		    ; r23,r22 = m12 (0,0..11,996),
+		    call	NOTERECALC		    ; r23,r22 = m12 (0,0..11,996), //ML--->>changed rcall in call to avoid error " relative branch out of reach"
 						                ; r20 = n12 (0..11)
-		    rcall	LOAD_DELTA		    ; r19:r18:r17:r16 = delta
-		    rcall	SHL32			    ; r19:r18:r17:r16 = delta*(2^exp)
+		    call	LOAD_DELTA		    ; r19:r18:r17:r16 = delta  //ML--->>changed rcall in call to avoid error " relative branch out of reach"
+		    call	SHL32			    ; r19:r18:r17:r16 = delta*(2^exp) //ML--->>changed rcall in call to avoid error " relative branch out of reach"
 
 			sts DELTAB_0,r17
   			sts DELTAB_1,r18

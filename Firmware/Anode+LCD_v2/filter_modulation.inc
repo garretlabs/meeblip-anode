@@ -96,7 +96,7 @@ mlp_cutoff:
 			mov		r17, r16			; Copy unscaled cutoff to r17
 			ldi		r30, low( TAB_VCF)	;\
 			ldi		r31, high( TAB_VCF)	;/ Z = &Tab
-			rcall	TAB_BYTE		; r16 = 1.. 255
+			call	TAB_BYTE		; r16 = 1.. 255 //ML--->>changed rcall in call to avoid error " relative branch out of reach"
 			sts		LPF_I, r16		; Store Lowpass F value (from exponential table)
 
 mlp_output_cutoff:
@@ -105,6 +105,6 @@ mlp_output_cutoff:
 			mov		r16, r17		; Copy unscaled cutoff back to r16
 			ldi		r30, low( TAB_VCF2)	;\
 			ldi		r31, high( TAB_VCF2)	;/ Z = &Tab
-			rcall	TAB_BYTE		; r16 = 1.. 255
+			call	TAB_BYTE		; r16 = 1.. 255 //ML--->>changed rcall in call to avoid error " relative branch out of reach"
 
 			out     OCr2, r16		; load Cutoff value into PWM counter

@@ -1,6 +1,6 @@
 ;-------------------------------------------------------------------------------------------------------------------
 ; Meeblip anode		Version 1.00
-;
+; ML (Garretlabs) mod. V.2.9
 ;
 ;-------------------------------------------------------------------------------------------------------------------
 ; Variables and definitions
@@ -221,3 +221,12 @@ LED_TIMER:		.byte 1				; number of blinks before reset
 LED_TIMER2:		.byte 1
 BUTTON_STATUS:	.byte 1				; MIDI=1
 FIRMWARE:		.byte 1				; 0 = standard firmware, 1 = alternate
+
+///ML 20x4 lcd strings (4 rows of 20 chars+'\0')
+my_LCDstring4: .byte 21
+my_LCDstring3: .byte 21
+my_LCDstring2: .byte 21
+my_LCDstring1: .byte 21
+
+//ML temporary variable in RAM
+temp_in_RAM: .byte 1
